@@ -1,0 +1,40 @@
+﻿<Window x:Class="Агеенков_курсач.Admin.Пикеты.ManagePicketsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Управление пикетами" Height="600" Width="900">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Пикеты" FontSize="16" FontWeight="Bold" Grid.Row="0"/>
+
+        <DataGrid x:Name="PicketsGrid" Grid.Row="1" Margin="0,10"
+                 AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="Auto"/>
+                <DataGridTextColumn Header="Профиль" Binding="{Binding Профиль}" Width="*"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding номер}" Width="Auto"/>
+                <DataGridTextColumn Header="Координата" Binding="{Binding Координата}" Width="*"/>
+                <DataGridTextColumn Header="Высота" Binding="{Binding высота}" Width="Auto"/>
+                <DataGridTemplateColumn Header="Действия" Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Изменить" Margin="2" Click="EditPicket_Click"/>
+                                <Button Content="Удалить" Margin="2" Click="DeletePicket_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Добавить" Width="80" Margin="0,0,10,0" Click="AddPicket_Click"/>
+            <Button Content="Назад" Width="80" Click="BackButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

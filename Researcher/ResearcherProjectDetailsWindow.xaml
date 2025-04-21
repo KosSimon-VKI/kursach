@@ -1,0 +1,94 @@
+﻿<Window x:Class="Агеенков_курсач.Researcher.ResearcherProjectDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Детали проекта" Height="700" Width="1000"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Информация о проекте -->
+        <GroupBox Grid.Row="0" Header="Информация о проекте" Margin="0,0,0,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Название:" Margin="5"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="ProjectNameText" IsReadOnly="True" Margin="5"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Заказчик:" Margin="5"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="CustomerText" IsReadOnly="True" Margin="5"/>
+
+
+                <Label Grid.Row="1" Grid.Column="2" Content="Описание:" Margin="5"/>
+                <TextBox Grid.Row="1" Grid.Column="3" x:Name="ProjectDescriptionText" IsReadOnly="True" Margin="5"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- Оборудование -->
+        <TabControl Grid.Row="2" Margin="0,0,0,10">
+            <TabItem Header="Оборудование">
+                <DataGrid x:Name="EquipmentDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="Auto"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding название}" Width="*"/>
+                        <DataGridTextColumn Header="Тип" Binding="{Binding тип}" Width="*"/>
+                        <DataGridTextColumn Header="Серийный номер" Binding="{Binding серийный_номер}" Width="*"/>
+                        <DataGridTextColumn Header="Дата добавления" Binding="{Binding дата_добавления, StringFormat=dd.MM.yyyy}" Width="Auto"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <!-- Измерения -->
+            <TabItem Header="Измерения">
+                <DataGrid x:Name="MeasurementsDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="Auto"/>
+                        <DataGridTextColumn Header="Тип" Binding="{Binding тип_измерения}" Width="*"/>
+                        <DataGridTextColumn Header="Результат" Binding="{Binding результат}" Width="*"/>
+                        <DataGridTextColumn Header="Дата" Binding="{Binding дата_время, StringFormat=dd.MM.yyyy HH:mm}" Width="Auto"/>
+                        <DataGridTextColumn Header="Оператор" Binding="{Binding оператор}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <!-- Отчеты -->
+            <TabItem Header="Отчеты">
+                <DataGrid x:Name="ReportsDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="Auto"/>
+                        <DataGridTextColumn Header="Дата создания" Binding="{Binding дата_создания, StringFormat=dd.MM.yyyy HH:mm}" Width="Auto"/>
+                        <DataGridTextColumn Header="Описание" Binding="{Binding описание}" Width="*"/>
+                        <DataGridTemplateColumn Header="Действия" Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Открыть" Click="OpenReport_Click" Margin="2"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+
+        <!-- Кнопка назад -->
+        <Button Grid.Row="4" Content="Назад" Width="100" HorizontalAlignment="Right" Click="BackButton_Click"/>
+    </Grid>
+</Window>

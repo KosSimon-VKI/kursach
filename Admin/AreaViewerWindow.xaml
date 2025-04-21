@@ -1,0 +1,32 @@
+﻿<Window x:Class="Агеенков_курсач.AreaViewerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Просмотр площади" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <Label Content="Площадь:"/>
+            <ComboBox x:Name="AreaComboBox" DisplayMemberPath="название" Width="200" Margin="5,0"/>
+            <Button Content="Показать" Click="ShowArea_Click" Margin="5,0"/>
+            <Button Content="Экспорт в PNG" Click="ExportToPng_Click" Margin="5,0"/>
+            <Button Content ="Назад" Click="BackButton_Click" Margin="5,0"/>
+        </StackPanel>
+
+        <Canvas x:Name="DrawingCanvas" Grid.Row="1" Background="White" Margin="5">
+            <TextBlock x:Name="NoDataText" Text="Выберите площадь для отображения" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Visibility="Visible"/>
+        </Canvas>
+
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>
+                <TextBlock x:Name="StatusText"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

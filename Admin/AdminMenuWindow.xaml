@@ -1,0 +1,45 @@
+﻿<Window x:Class="Агеенков_курсач.Admin.AdminMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Меню администратора" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Управление базой данных" FontSize="18" FontWeight="Bold" 
+               HorizontalAlignment="Center" Grid.Row="0"/>
+
+        <UniformGrid Grid.Row="1" Columns="3" Rows="5">
+            <!-- Первый столбец -->
+            <Button Content="Договоры" Margin="5" Click="Contracts_Click"/>
+            <Button Content="Заказчики" Margin="5" Click="Customers_Click"/>
+            <Button Content="Измерения" Margin="5" Click="Measurements_Click"/>
+
+            <!-- Второй столбец -->
+            <Button Content="Координаты" Margin="5" Click="Coordinates_Click"/>
+            <Button Content="Оборудование" Margin="5" Click="Equipment_Click"/>
+            <Button Content="Операторы" Margin="5" Click="Operators_Click"/>
+
+            <!-- Третий столбец -->
+            <Button Content="Отчёты" Margin="5" Click="Reports_Click"/>
+            <Button Content="Пикеты" Margin="5" Click="Pickets_Click"/>
+            <Button Content="Площади" Margin="5" Click="Areas_Click"/>
+
+            <!-- Четвертый столбец -->
+            <Button Content="Пользователи" Margin="5" Click="Users_Click"/>
+            <Button Content="Проекты" Margin="5" Click="Projects_Click"/>
+            <Button Content="Профили" Margin="5" Click="Profiles_Click"/>
+
+            <!-- Пятый столбец -->
+            <Button Content="Типы пользователей" Margin="5" Click="UserTypes_Click"/>
+            <Button Content="Просмотр площадей" Click="ViewAreas_Click" Margin="5"/>
+            <Button Content="Просмотр профилей" Click="ViewProfiles_Click" Margin="5"/>
+        </UniformGrid>
+
+        <Button Grid.Row="2" Content="Назад" Width="100" HorizontalAlignment="Right" Click="BackButton_Click"/>
+    </Grid>
+</Window>

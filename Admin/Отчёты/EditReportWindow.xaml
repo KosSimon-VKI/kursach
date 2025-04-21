@@ -1,0 +1,40 @@
+﻿<Window x:Class="Агеенков_курсач.Admin.Отчеты.EditReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding WindowTitle}" Height="450" Width="500">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Измерение:" Grid.Row="0"/>
+        <ComboBox x:Name="MeasurementComboBox" Grid.Row="1" DisplayMemberPath="тип_измерения"/>
+
+        <Label Content="Проект:" Grid.Row="2"/>
+        <ComboBox x:Name="ProjectComboBox" Grid.Row="3" DisplayMemberPath="название"/>
+
+        <Label Content="Дата создания:" Grid.Row="4"/>
+        <DatePicker x:Name="CreateDatePicker" Grid.Row="5"/>
+
+        <Label Content="Описание:" Grid.Row="6"/>
+        <TextBox x:Name="DescriptionTextBox" Grid.Row="7" AcceptsReturn="True" Height="60"/>
+
+        <Label Content="Графики:" Grid.Row="8"/>
+        <TextBox x:Name="GraphsTextBox" Grid.Row="9"/>
+
+        <Label Content="Файл отчета:" Grid.Row="10"/>
+        <TextBox x:Name="ReportFileTextBox" Grid.Row="11"/>
+
+        <StackPanel Grid.Row="12" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Сохранить" Width="80" Margin="0,0,10,0" Click="SaveButton_Click"/>
+            <Button Content="Отмена" Width="80" Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

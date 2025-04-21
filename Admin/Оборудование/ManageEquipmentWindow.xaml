@@ -1,0 +1,41 @@
+﻿<Window x:Class="Агеенков_курсач.Admin.Оборудование.ManageEquipmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Управление оборудованием" Height="600" Width="900">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Оборудование" FontSize="16" FontWeight="Bold" Grid.Row="0"/>
+
+        <DataGrid x:Name="EquipmentGrid" Grid.Row="1" Margin="0,10"
+                 AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="Auto"/>
+                <DataGridTextColumn Header="Проект" Binding="{Binding Проект}" Width="*"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding название}" Width="*"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding тип}" Width="*"/>
+                <DataGridTextColumn Header="Серийный номер" Binding="{Binding серийный_номер}" Width="*"/>
+                <DataGridTextColumn Header="Дата добавления" Binding="{Binding дата_добавления, StringFormat=dd.MM.yyyy}" Width="Auto"/>
+                <DataGridTemplateColumn Header="Действия" Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Изменить" Margin="2" Click="EditEquipment_Click"/>
+                                <Button Content="Удалить" Margin="2" Click="DeleteEquipment_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Добавить" Width="80" Margin="0,0,10,0" Click="AddEquipment_Click"/>
+            <Button Content="Назад" Width="80" Click="BackButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

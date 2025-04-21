@@ -1,0 +1,33 @@
+﻿<Window x:Class="Агеенков_курсач.Admin.Пикеты.EditPicketWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding WindowTitle}" Height="350" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Профиль:" Grid.Row="0"/>
+        <ComboBox x:Name="ProfileComboBox" Grid.Row="1" DisplayMemberPath="название"/>
+
+        <Label Content="Номер:" Grid.Row="2"/>
+        <TextBox x:Name="NumberTextBox" Grid.Row="3"/>
+
+        <Label Content="Координата:" Grid.Row="4"/>
+        <ComboBox x:Name="CoordinateComboBox" Grid.Row="5" DisplayMemberPath="широта"/>
+
+        <Label Content="Высота:" Grid.Row="6"/>
+        <TextBox x:Name="HeightTextBox" Grid.Row="7"/>
+
+        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Сохранить" Width="80" Margin="0,0,10,0" Click="SaveButton_Click"/>
+            <Button Content="Отмена" Width="80" Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

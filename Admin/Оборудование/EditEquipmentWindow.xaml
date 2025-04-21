@@ -1,0 +1,39 @@
+﻿<Window x:Class="Агеенков_курсач.Admin.Оборудование.EditEquipmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="{Binding Title}" Height="450" Width="500"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Label Content="Проект:"/>
+            <ComboBox x:Name="ProjectComboBox" DisplayMemberPath="название" SelectedValuePath="id"/>
+
+            <Label Content="Название:" Margin="0,10,0,0"/>
+            <TextBox x:Name="NameTextBox"/>
+
+            <Label Content="Тип:" Margin="0,10,0,0"/>
+            <TextBox x:Name="TypeTextBox"/>
+
+            <Label Content="Серийный номер:" Margin="0,10,0,0"/>
+            <TextBox x:Name="SerialNumberTextBox"/>
+
+            <Label Content="Характеристики:" Margin="0,10,0,0"/>
+            <TextBox x:Name="SpecsTextBox" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+
+            <Label Content="Дата добавления:" Margin="0,10,0,0"/>
+            <DatePicker x:Name="DatePicker" SelectedDate="{x:Static sys:DateTime.Now}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Сохранить" Width="80" Margin="0,0,10,0" Click="SaveButton_Click"/>
+            <Button Content="Отмена" Width="80" Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
